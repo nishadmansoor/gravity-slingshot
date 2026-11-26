@@ -2,6 +2,8 @@
 
 Launch a probe through a field of planets and bend its path with gravity to hit the green ring.
 
+https://gravity-slingshot.gravity-slingshot.workers.dev 
+
 ## How to play
 
 1. **Press** on the blue launcher and **pull back**, like a slingshot. The shot goes the opposite way from your pull.
