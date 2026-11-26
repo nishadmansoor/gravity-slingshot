@@ -1,0 +1,17 @@
+{
+  "name": "gravity-slingshot-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build:client && wrangler dev",
+    "db:local": "wrangler d1 execute slingshot-db --local --file=schema.sql",
+    "db:remote": "wrangler d1 execute slingshot-db --remote --file=schema.sql",
+    "deploy": "npm run build:client && wrangler deploy",
+    "test": "node --test test/*.test.js",
+    "solve": "node scripts/solve.js",
+    "build:client": "npm --prefix ../client run build"
+  },
+  "devDependencies": {
+    "wrangler": "^4.167.0"
+  }
+}

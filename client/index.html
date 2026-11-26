@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Gravity Slingshot</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+
+    <div id="hud" class="hidden">
+      <div class="stat"><span class="label">Level</span><span id="hud-level"></span><span id="hud-level-name" class="sub"></span></div>
+      <div class="stat"><span class="label">Shots</span><span id="hud-shots" class="pips"></span></div>
+      <div class="stat"><span class="label">Score</span><span id="hud-score">0</span></div>
+    </div>
+    <div id="aim-readout" class="hidden"></div>
+    <div id="hint" class="hidden"></div>
+    <div id="toast"></div>
+
+    <section id="screen-menu" class="screen">
+      <div class="panel">
+        <h1>Gravity<span>Slingshot</span></h1>
+        <p class="tagline">Bend your shot around planets. Hit the green ring.</p>
+        <div class="howto">
+          <h2>How to play</h2>
+          <ol>
+            <li><b>Press</b> on the blue launcher and <b>pull back</b> &mdash; like a slingshot.</li>
+            <li>Pull further for more power. The dots show the <b>start</b> of your path only.</li>
+            <li><b>Release</b> to fire. Gravity does the rest.</li>
+          </ol>
+          <ul class="legend">
+            <li><i class="dot planet"></i>Planets pull you in</li>
+            <li><i class="dot hole"></i>Black holes pull hard &mdash; don't cross the orange line</li>
+            <li><i class="dot rep"></i>Repellers push you away</li>
+            <li><i class="dot star"></i>Stars: +50 if collected on the winning shot</li>
+          </ul>
+          <p class="small">5 shots per level. Fewer shots = more points. Faint lines show your earlier tries.<br />
+            Planet masses vary slightly each run, so the dots are a guide, not a promise.<br />
+            <kbd>R</kbd> cancel aim / skip flight &nbsp; hold <kbd>Space</kbd> fast-forward &nbsp; <kbd>Esc</kbd> pause</p>
+        </div>
+        <div class="buttons">
+          <button id="btn-start" class="primary">Start</button>
+          <button id="btn-board">Leaderboard</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-clear" class="screen hidden">
+      <div class="panel small-panel">
+        <h2 id="clear-title">Level cleared!</h2>
+        <p id="clear-detail"></p>
+        <div class="buttons"><button id="btn-next" class="primary">Next level</button></div>
+      </div>
+    </section>
+
+    <section id="screen-over" class="screen hidden">
+      <div class="panel small-panel">
+        <h2 id="over-title">Out of shots</h2>
+        <p id="over-detail"></p>
+        <form id="over-form">
+          <input id="over-name" maxlength="12" minlength="3" placeholder="Your name (3–12)" autocomplete="nickname" required />
+          <button class="primary" type="submit">Submit score</button>
+        </form>
+        <p id="over-error" class="error"></p>
+        <div class="buttons"><button id="btn-over-skip">Skip</button></div>
+      </div>
+    </section>
+
+    <section id="screen-board" class="screen hidden">
+      <div class="panel small-panel">
+        <h2>Leaderboard</h2>
+        <ol id="board-list" class="board"></ol>
+        <div class="buttons">
+          <button id="btn-again" class="primary">Play</button>
+          <button id="btn-back">Menu</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-pause" class="screen hidden">
+      <div class="panel small-panel">
+        <h2>Paused</h2>
+        <div class="buttons">
+          <button id="btn-resume" class="primary">Resume</button>
+          <button id="btn-quit">End run &amp; save score</button>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
